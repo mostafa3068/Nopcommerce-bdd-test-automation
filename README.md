@@ -132,7 +132,13 @@ These improvements would make the framework more production-ready and closer to 
 
 ---
 
-## 📥 How to Download and Run the Project
+## 🎥 Project Demo Video
+
+A demo video showing the framework execution.
+
+https://github.com/user-attachments/assets/c344699f-efb0-48d9-9e0e-add81418f592
+
+## 📥 Download and Run the Project
 
 ### Prerequisites
 
@@ -226,11 +232,5 @@ target/cucumber-reports/cucumber.html
 ```
 
 ---
-
-## 🎥 Project Demo Video
-
-A demo video showing the framework execution.
-
-https://github.com/user-attachments/assets/c344699f-efb0-48d9-9e0e-add81418f592
 
 
