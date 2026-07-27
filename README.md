@@ -229,8 +229,8 @@ target/cucumber-reports/cucumber.html
 
 ## 🎥 Project Demo Video
 
-A demo video showing the framework execution will be added here.
+A demo video showing the framework execution.
 
-```text
-Video link: Coming soon
-```
+https://github.com/user-attachments/assets/c344699f-efb0-48d9-9e0e-add81418f592
+
+
