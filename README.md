@@ -332,7 +332,7 @@ nopcommerce-automation
 Each web page is represented by a dedicated Java class that encapsulates its locators and actions (e.g., `LoginPage.java`, `CartPage.java`, `CheckoutPage.java`). 
 * **Benefit:** Centralizes UI interactions, keeping tests clean and dramatically reducing maintenance effort when UI elements change.
 
----
+
 
 ### 🧱 Base Page Abstraction
 `BasePage.java` serves as the parent class for all page objects, providing centralized wrapper methods for Selenium interactions:
@@ -342,23 +342,38 @@ Each web page is represented by a dedicated Java class that encapsulates its loc
 * `isDisplayed(By locator)`
 * `navigateTo(String url)`
 
----
+
 
 ### 🏭 Factory Pattern
 `DriverFactory.java` centralizes the creation, configuration, and teardown of `WebDriver` instances.
 * **Benefit:** Eliminates duplicate driver initialization code across runners and hooks.
 
----
+
 
 ### 🧵 ThreadLocal WebDriver
 The framework wraps `WebDriver` inside `ThreadLocal<WebDriver>` to support thread-safe parallel test execution.
 * **Benefit:** Ensures each concurrent test thread operates independently in its own isolated browser session without state pollution.
 
----
+
 
 ### ⚙️ Configuration Management
 `ConfigReader.java` dynamically loads key-value pairs from `config.properties`.
 * **Benefit:** Externalizes settings like browser type, base URL, and explicit wait timeouts out of source code into a single configuration file.
+
+---
+
+## 🧪 Test Coverage
+
+The framework covers key user journeys across the following nopCommerce modules:
+
+- **User Registration:** Account creation flow and registration validation
+- **User Login:** Successful authentication and access control
+- **Product Search:** Searching for products and validating search results
+- **Product Details:** Navigating to individual product pages and verifying product specifications
+- **Shopping Cart:** Adding items to cart, updating quantities, and managing cart items
+- **Coupon Application:** Validating discount codes and price adjustments
+- **Checkout Flow:** End-to-end checkout execution including billing, shipping, and order completion
+- **Negative Login & Validation:** Testing invalid credentials, required field validations, and error messages
 
 
 
