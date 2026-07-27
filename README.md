@@ -233,4 +233,132 @@ target/cucumber-reports/cucumber.html
 
 ---
 
+## Architecture Explanation
+
+- Feature files describe the expected application behavior in readable Gherkin syntax.
+- Step definitions connect the Gherkin steps to Java automation code.
+- Page objects contain locators and actions for each application page.
+- BasePage provides reusable Selenium actions such as click, type, get text, and navigation.
+- Utility classes manage configuration, waits, and WebDriver lifecycle.
+- Selenium WebDriver interacts with the browser.
+
+ ## 📁 Project Structure
+
+```text
+nopcommerce-automation
+├── src
+│   ├── main
+│   │   └── java
+│   │       └── mostafa.qc
+│   │           ├── constants
+│   │           │   └── Constants.java
+│   │           ├── pages
+│   │           │   ├── BasePage.java
+│   │           │   ├── HomePage.java
+│   │           │   ├── LoginPage.java
+│   │           │   ├── RegistrationPage.java
+│   │           │   ├── SearchResultsPage.java
+│   │           │   ├── ProductPage.java
+│   │           │   ├── CartPage.java
+│   │           │   └── CheckoutPage.java
+│   │           └── utils
+│   │               ├── ConfigReader.java
+│   │               ├── DriverFactory.java
+│   │               └── WaitUtils.java
+│   │
+│   └── test
+│       ├── java
+│       │   └── mostafa.qc
+│       │       ├── context
+│       │       │   └── TestContext.java
+│       │       ├── listeners
+│       │       │   └── TestListener.java
+│       │       ├── runners
+│       │       │   ├── TestRunner.java
+│       │       │   ├── SmokeTestRunner.java
+│       │       │   ├── RegressionTestRunner.java
+│       │       │   ├── NegativeTestRunner.java
+│       │       │   └── FailedTestRunner.java
+│       │       └── stepdefinitions
+│       │           ├── Hooks.java
+│       │           ├── LoginSteps.java
+│       │           ├── RegistrationSteps.java
+│       │           ├── SearchSteps.java
+│       │           ├── CartSteps.java
+│       │           ├── CheckoutSteps.java
+│       │           └── CouponSteps.java
+│       │
+│       └── resources
+│           ├── config.properties
+│           ├── features
+│           │   ├── login.feature
+│           │   ├── registration.feature
+│           │   ├── search.feature
+│           │   ├── cart.feature
+│           │   ├── checkout.feature
+│           │   └── coupon.feature
+│           └── testing
+│               ├── testng.xml
+│               ├── smoke-suite.xml
+│               └── regression-suite.xml
+│
+├── pom.xml
+└── README.md
+
+```
+
+---
+
+## 📂 Folder Responsibilities
+
+| Folder | Responsibility |
+| :--- | :--- |
+| `features` | Contains BDD test scenarios written in Gherkin |
+| `stepdefinitions` | Maps feature file steps to Java methods |
+| `pages` | Stores page objects, locators, and page actions |
+| `utils` | Contains reusable framework utilities |
+| `constants` | Stores shared constant values |
+| `runners` | Controls Cucumber/TestNG execution |
+| `testing` | Stores TestNG suite XML files |
+| `context` | Stores shared scenario-level state |
+| `listeners` | Handles TestNG execution events |
+
+
+---
+
+## 🏗️ Design Patterns & Architecture
+
+### 📄 Page Object Model (POM)
+Each web page is represented by a dedicated Java class that encapsulates its locators and actions (e.g., `LoginPage.java`, `CartPage.java`, `CheckoutPage.java`). 
+* **Benefit:** Centralizes UI interactions, keeping tests clean and dramatically reducing maintenance effort when UI elements change.
+
+---
+
+### 🧱 Base Page Abstraction
+`BasePage.java` serves as the parent class for all page objects, providing centralized wrapper methods for Selenium interactions:
+* `click(By locator)`
+* `type(By locator, String text)`
+* `getText(By locator)`
+* `isDisplayed(By locator)`
+* `navigateTo(String url)`
+
+---
+
+### 🏭 Factory Pattern
+`DriverFactory.java` centralizes the creation, configuration, and teardown of `WebDriver` instances.
+* **Benefit:** Eliminates duplicate driver initialization code across runners and hooks.
+
+---
+
+### 🧵 ThreadLocal WebDriver
+The framework wraps `WebDriver` inside `ThreadLocal<WebDriver>` to support thread-safe parallel test execution.
+* **Benefit:** Ensures each concurrent test thread operates independently in its own isolated browser session without state pollution.
+
+---
+
+### ⚙️ Configuration Management
+`ConfigReader.java` dynamically loads key-value pairs from `config.properties`.
+* **Benefit:** Externalizes settings like browser type, base URL, and explicit wait timeouts out of source code into a single configuration file.
+
+
 
