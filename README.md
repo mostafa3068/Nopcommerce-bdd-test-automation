@@ -138,6 +138,8 @@ A demo video showing the framework execution.
 
 https://github.com/user-attachments/assets/c344699f-efb0-48d9-9e0e-add81418f592
 
+---
+
 ## 📥 Download and Run the Project
 
 ### Prerequisites
@@ -162,7 +164,7 @@ You can change the application URL from:
 src/test/resources/config.properties
 ```
 
----
+
 
 ### Clone the Repository
 
@@ -171,7 +173,7 @@ git clone https://github.com/YOUR_USERNAME/Nopcommerce-bdd-test-automation.git
 cd Nopcommerce-bdd-test-automation
 ```
 
----
+
 
 ### Install Dependencies
 
@@ -183,7 +185,7 @@ You can also validate the project setup using:
 mvn clean compile
 ```
 
----
+
 
 ### Run All Tests
 
@@ -191,7 +193,7 @@ mvn clean compile
 mvn clean test -Dtest=TestRunner
 ```
 
----
+
 
 ### Run Smoke Tests
 
@@ -199,7 +201,7 @@ mvn clean test -Dtest=TestRunner
 mvn clean test -Dtest=SmokeTestRunner
 ```
 
----
+
 
 ### Run Regression Tests
 
@@ -207,7 +209,7 @@ mvn clean test -Dtest=SmokeTestRunner
 mvn clean test -Dtest=RegressionTestRunner
 ```
 
----
+
 
 ### Run Negative Tests
 
@@ -215,7 +217,7 @@ mvn clean test -Dtest=RegressionTestRunner
 mvn clean test -Dtest=NegativeTestRunner
 ```
 
----
+
 
 ### View Test Reports
 
@@ -241,6 +243,8 @@ target/cucumber-reports/cucumber.html
 - BasePage provides reusable Selenium actions such as click, type, get text, and navigation.
 - Utility classes manage configuration, waits, and WebDriver lifecycle.
 - Selenium WebDriver interacts with the browser.
+
+  ---
 
  ## 📁 Project Structure
 
