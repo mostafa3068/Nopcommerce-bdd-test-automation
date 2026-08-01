@@ -11,6 +11,14 @@ The goal of this project is not only to automate test cases, but also to demonst
 
 ---
 
+## 🎥 Project Demo 
+
+
+https://github.com/user-attachments/assets/c344699f-efb0-48d9-9e0e-add81418f592
+
+---
+
+
 ## 🎯 Project Goal
 
 This project was created to practice and demonstrate real-world QA automation engineering skills, including:
@@ -38,6 +46,7 @@ This project was created to practice and demonstrate real-world QA automation en
 - Selenium Manager
 - PageFactory
 - Gherkin
+- Docker
 - Git / GitHub
 
 ---
@@ -132,14 +141,6 @@ These improvements would make the framework more production-ready and closer to 
 
 ---
 
-## 🎥 Project Demo Video
-
-A demo video showing the framework execution.
-
-https://github.com/user-attachments/assets/c344699f-efb0-48d9-9e0e-add81418f592
-
----
-
 ## 📥 Download and Run the Project
 
 ### Prerequisites
@@ -164,6 +165,14 @@ You can change the application URL from:
 ```text
 src/test/resources/config.properties
 ```
+
+## 📦 Clone the Repository
+
+```bash
+git clone https://github.com/mostafa3068/Nopcommerce-bdd-test-automation.git
+cd Nopcommerce-bdd-test-automation
+```
+
 ## 🐳 Local nopCommerce Deployment with Docker
 
 This project uses Docker to run the nopCommerce application locally as a test environment.
@@ -180,8 +189,6 @@ After starting the Docker containers, the nopCommerce website should be availabl
 ```text
 http://localhost:5000
 ```
-
-
 
 ### Verify Docker Desktop Is Running
 
@@ -206,13 +213,7 @@ nopcommerce-docker
 
 ### Start the nopCommerce Environment
 
-If the project includes a `docker-compose.yml` file, start the application using:
-
-```bash
-docker compose up -d
-```
-
-Or, for older Docker versions:
+From the same folder where `docker-compose.yml` exists : 
 
 ```bash
 docker-compose up -d
@@ -237,8 +238,6 @@ nopcommerce
 sqlserver
 ```
 
-
-
 ### Open the Application
 
 After the containers are running, open the website in your browser:
@@ -248,8 +247,6 @@ http://localhost:5000
 ```
 
 Make sure the website loads successfully before running the automation tests.
-
-
 
 ### Stop the Docker Environment
 
@@ -264,17 +261,6 @@ Or:
 ```bash
 docker-compose down
 ```
-
-
-
-## 📦 Clone the Repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/Nopcommerce-bdd-test-automation.git
-cd Nopcommerce-bdd-test-automation
-```
-
-
 
 ## ⚙️ Install Dependencies
 
