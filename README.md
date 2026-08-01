@@ -1,4 +1,4 @@
-# 🧪 Nopcommerce BDD Test Automation
+# 🤖  Nopcommerce BDD Test Automation
 
 ## 📌 Project Overview
 
