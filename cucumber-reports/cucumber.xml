@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="263.535" tests="31" skipped="0" failures="1" errors="0">
+<testcase classname="Shopping Cart" name="Add product to cart successfully" time="4.953">
+<system-out><![CDATA[
+Given the user is on the home page..........................................passed
+When the user searches for "laptop".........................................passed
+And the user clicks on the first product....................................passed
+And the user clicks add to cart button......................................passed
+Then the user should see success notification "product has been added"......passed
+And the cart should contain 1 item..........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Shopping Cart" name="Remove product from cart" time="43.682">
+<system-out><![CDATA[
+Given the user has a product in the cart....................................passed
+When the user opens the cart page...........................................passed
+And the user removes the first item from cart...............................passed
+Then the cart should be empty...............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Shopping Cart" name="Update product quantity in cart" time="24.219">
+<system-out><![CDATA[
+Given the user has a product in the cart....................................passed
+When the user opens the cart page...........................................passed
+And the user updates the quantity to 3......................................passed
+Then the cart totals should be updated......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Shopping Cart" name="Cart persists after page refresh" time="26.941">
+<system-out><![CDATA[
+Given the user has a product in the cart....................................passed
+Given the user is on the cart page..........................................passed
+When the user refreshes the page............................................passed
+Then the cart should still contain the product..............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Shopping Cart" name="Cannot checkout with empty cart" time="11.958">
+<system-out><![CDATA[
+Given the user is on the cart page..........................................passed
+And the cart is empty.......................................................passed
+When the user tries to proceed to checkout..................................passed
+Then the user should see empty cart message.................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Checkout Process" name="Successful checkout with cash on delivery" time="20.829">
+<system-out><![CDATA[
+Given the user is logged in.................................................passed
+And the user has a product in the cart......................................passed
+When the user opens the cart page...........................................passed
+And check the check box of the term of the services.........................passed
+And the user proceeds to checkout...........................................passed
+And the user fills billing address with valid data..........................passed
+And the user continues to shipping method choose to stay on default and click continue.passed
+And the user continues to payment method choose to stay on default and click continue.passed
+And the user continues to payment info then continue........................passed
+And the user confirms the order.............................................passed
+Then the order should be placed successfully................................passed
+And the user should see order confirmation with order number................passed
+]]></system-out>
+</testcase>
+<testcase classname="Checkout Process" name="Successful checkout with credit card" time="36.005">
+<failure type="java.lang.AssertionError" message="[Order should be confirmed] 
+Expecting value to be true but was false">
+<![CDATA[java.lang.AssertionError: [Order should be confirmed] 
+Expecting value to be true but was false
+	at mostafa.qc.stepdefinitions.CheckoutSteps.theOrderShouldBePlacedSuccessfully(CheckoutSteps.java:213)
+	at ✽.the order should be placed successfully(file:///C:/Users/Mostafa/Desktop/Automation_Testing_Project/Nop/Automation_Files_Script/Nopcommerce-automation/src/test/resources/features/checkout.feature:58)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the user is logged in.................................................passed
+And the user has a product in the cart......................................passed
+When the user opens the cart page...........................................passed
+And check the check box of the term of the services.........................passed
+And the user proceeds to checkout...........................................passed
+And the user fills billing address with valid data..........................passed
+And the user continues to shipping method choose to stay on default and click continue.passed
+And the user selects credit card payment....................................passed
+And the user enters valid card details......................................passed
+And the user continues to payment info then continue........................passed
+And the user confirms the order.............................................passed
+Then the order should be placed successfully................................failed
+And the user should see order confirmation with order number................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Checkout Process" name="Checkout fails with invalid card details" time="18.481">
+<system-out><![CDATA[
+Given the user is logged in.................................................passed
+And the user has a product in the cart......................................passed
+When the user opens the cart page...........................................passed
+And check the check box of the term of the services.........................passed
+And the user proceeds to checkout...........................................passed
+And the user fills billing address with valid data..........................passed
+And the user continues to shipping method choose to stay on default and click continue.passed
+And the user selects credit card payment....................................passed
+And the user enters invalid card details....................................passed
+And the user continues to payment info expecting payment error..............passed
+Then the user should see wrong credit number massage........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Checkout Process" name="Checkout fails with incomplete billing address" time="14.513">
+<system-out><![CDATA[
+Given the user is logged in.................................................passed
+And the user has a product in the cart......................................passed
+When the user opens the cart page...........................................passed
+And check the check box of the term of the services.........................passed
+And the user proceeds to checkout...........................................passed
+And the user leaves billing address fields empty............................passed
+Then the user should see billing validation errors..........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Promotions and Coupons" name="Apply valid coupon successfully" time="4.078">
+<system-out><![CDATA[
+Given the user has a product in the cart....................................passed
+And the user is on the cart page............................................passed
+When the user enters coupon code "456"......................................passed
+And the user clicks apply coupon button.....................................passed
+Then the coupon should be applied successfully..............................passed
+And the cart total should reflect the discount..............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Promotions and Coupons" name="Remove applied coupon" time="13.922">
+<system-out><![CDATA[
+Given the user has a product in the cart....................................passed
+And the user is on the cart page............................................passed
+Given the user has applied coupon "456".....................................passed
+When the user removes the coupon............................................passed
+Then the coupon should be removed...........................................passed
+And the cart total should return to original price..........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Promotions and Coupons" name="Apply expired coupon fails" time="3.552">
+<system-out><![CDATA[
+Given the user has a product in the cart....................................passed
+And the user is on the cart page............................................passed
+When the user enters coupon code "326"......................................passed
+And the user clicks apply coupon button.....................................passed
+Then the user should see coupon error message "cannot"......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Promotions and Coupons" name="Apply invalid coupon code fails" time="3.5">
+<system-out><![CDATA[
+Given the user has a product in the cart....................................passed
+And the user is on the cart page............................................passed
+When the user enters coupon code "INVALIDCODE123"...........................passed
+And the user clicks apply coupon button.....................................passed
+Then the user should see coupon error message "cannot"......................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Login" name="Successful login with valid credentials" time="2.115">
+<system-out><![CDATA[
+Given the user is on the login page.........................................passed
+When the user enters valid email "standard_user@test.com"...................passed
+And the user enters valid password "Test@123"...............................passed
+And the user clicks the login button........................................passed
+Then the user should be redirected to the home page.........................passed
+And the user should see the logout link.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Login" name="Successful login with multiple valid users - Example #1.1" time="2.092">
+<system-out><![CDATA[
+Given the user is on the login page.........................................passed
+When the user enters valid email "standard_user@test.com"...................passed
+And the user enters valid password "Test@123"...............................passed
+And the user clicks the login button........................................passed
+Then the user should be redirected to the home page.........................passed
+And the user should see the logout link.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Login" name="Successful login with multiple valid users - Example #1.2" time="2.104">
+<system-out><![CDATA[
+Given the user is on the login page.........................................passed
+When the user enters valid email "premium_user@test.com"....................passed
+And the user enters valid password "Test@456"...............................passed
+And the user clicks the login button........................................passed
+Then the user should be redirected to the home page.........................passed
+And the user should see the logout link.....................................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Login" name="Login fails with invalid password" time="1.948">
+<system-out><![CDATA[
+Given the user is on the login page.........................................passed
+When the user enters valid email "standard_user@test.com"...................passed
+And the user enters invalid password "WrongPassword"........................passed
+And the user clicks the login button........................................passed
+Then the user should see login error message "Login was unsuccessful".......passed
+And the user should remain on the login page................................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Login" name="Login fails with invalid email" time="1.98">
+<system-out><![CDATA[
+Given the user is on the login page.........................................passed
+When the user enters valid email "nonexistent@test.com".....................passed
+And the user enters valid password "Test@123"...............................passed
+And the user clicks the login button........................................passed
+Then the user should see login error message "Login was unsuccessful".......passed
+]]></system-out>
+</testcase>
+<testcase classname="User Login" name="Login fails with empty credentials" time="1.579">
+<system-out><![CDATA[
+Given the user is on the login page.........................................passed
+When the user clicks the login button.......................................passed
+Then the user should see validation error for empty email...................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Login" name="Login fails with empty password" time="1.876">
+<system-out><![CDATA[
+Given the user is on the login page.........................................passed
+When the user enters valid email "standard_user@test.com"...................passed
+And the user clicks the login button........................................passed
+Then the user should see login error message "Login was unsuccessful".......passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration" name="Successful registration with valid data" time="2.285">
+<system-out><![CDATA[
+Given the user is on the registration page..................................passed
+When the user enters first name "John"......................................passed
+And the user enters last name "Doe".........................................passed
+And the user enters a unique email..........................................passed
+And the user enters password "Test@123".....................................passed
+And the user enters confirm password "Test@123".............................passed
+And the user clicks the register button.....................................passed
+Then the user should see registration success message "Your registration completed".passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration" name="Successful registration with all fields" time="2.295">
+<system-out><![CDATA[
+Given the user is on the registration page..................................passed
+When the user selects gender "Male".........................................passed
+And the user enters first name "John".......................................passed
+And the user enters last name "Doe".........................................passed
+And the user enters a unique email..........................................passed
+And the user enters password "Test@123".....................................passed
+And the user enters confirm password "Test@123".............................passed
+And the user clicks the register button.....................................passed
+Then the user should see registration success message "Your registration completed".passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration" name="Registration fails with existing email" time="2.278">
+<system-out><![CDATA[
+Given the user is on the registration page..................................passed
+When the user enters first name "John"......................................passed
+And the user enters last name "Doe".........................................passed
+And the user enters existing email "standard_user@test.com".................passed
+And the user enters password "Test@123".....................................passed
+And the user enters confirm password "Test@123".............................passed
+And the user clicks the register button.....................................passed
+Then the user should see error message "exists".............................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration" name="Registration fails with mismatched passwords" time="2.086">
+<system-out><![CDATA[
+Given the user is on the registration page..................................passed
+When the user enters first name "John"......................................passed
+And the user enters last name "Doe".........................................passed
+And the user enters a unique email..........................................passed
+And the user enters password "Test@123".....................................passed
+And the user enters confirm password "DifferentPassword"....................passed
+And the user clicks the register button.....................................passed
+Then the user should see error message "The password and confirmation password do not match.".passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration" name="Registration fails with weak password" time="2.145">
+<system-out><![CDATA[
+Given the user is on the registration page..................................passed
+When the user enters first name "John"......................................passed
+And the user enters last name "Doe".........................................passed
+And the user enters a unique email..........................................passed
+And the user enters password "123"..........................................passed
+And the user enters confirm password "123"..................................passed
+And the user clicks the register button.....................................passed
+Then the user should see password validation error..........................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration" name="Registration fails with empty required fields" time="1.605">
+<system-out><![CDATA[
+Given the user is on the registration page..................................passed
+When the user clicks the register button....................................passed
+Then the user should see validation errors for required fields..............passed
+]]></system-out>
+</testcase>
+<testcase classname="Product Search" name="Search with exact product name returns results" time="1.989">
+<system-out><![CDATA[
+Given the user is on the home page..........................................passed
+When the user searches for "laptop".........................................passed
+Then the search results should be displayed.................................passed
+And the search results should contain products with "laptop"................passed
+]]></system-out>
+</testcase>
+<testcase classname="Product Search" name="Search with partial product name returns results" time="2.039">
+<system-out><![CDATA[
+Given the user is on the home page..........................................passed
+When the user searches for "lap"............................................passed
+Then the search results should be displayed.................................passed
+And the search results should contain products..............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Product Search" name="Search auto-suggest shows relevant suggestions" time="2.249">
+<system-out><![CDATA[
+Given the user is on the home page..........................................passed
+When the user types "com" in the search box.................................passed
+Then the auto-suggest dropdown should appear................................passed
+And all suggestions should contain the keyword "com"........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Product Search" name="Search with no matching results shows message" time="2.022">
+<system-out><![CDATA[
+Given the user is on the home page..........................................passed
+When the user searches for "xyznonexistent123"..............................passed
+Then the user should see no results message "No products were found"........passed
+]]></system-out>
+</testcase>
+<testcase classname="Product Search" name="Search with empty query" time="1.752">
+<system-out><![CDATA[
+Given the user is on the home page..........................................passed
+When the user searches for ""...............................................passed
+Then the user should see search warning message.............................passed
+]]></system-out>
+</testcase>
+</testsuite>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="27.438" tests="5" skipped="0" failures="1" errors="0">
+<testcase classname="User Login" name="Successful login with valid credentials" time="17.368">
+<failure type="java.lang.AssertionError" message="[Logout link should be visible] 
+Expecting value to be true but was false">
+<![CDATA[java.lang.AssertionError: [Logout link should be visible] 
+Expecting value to be true but was false
+	at mostafa.qc.stepdefinitions.LoginSteps.theUserShouldSeeTheLogoutLink(LoginSteps.java:162)
+	at ✽.the user should see the logout link(file:///C:/Users/Mostafa/Desktop/Automation_Testing_Project/Nop/Automation_Files_Script/Nopcommerce-automation/src/test/resources/features/login.feature:36)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the user is on the login page.........................................passed
+When the user enters valid email "standard_user@test.com"...................passed
+And the user enters valid password "Test@1234"..............................passed
+And the user clicks the login button........................................passed
+Then the user should be redirected to the home page.........................passed
+And the user should see the logout link.....................................failed
+]]></system-out>
+</testcase>
+<testcase classname="Shopping Cart" name="Add product to cart successfully" time="9.685">
+<system-out><![CDATA[
+Given the user is on the home page..........................................passed
+When the user searches for "laptop".........................................passed
+And the user clicks on the first product....................................passed
+And the user clicks add to cart button......................................passed
+Then the user should see success notification "product has been added"......passed
+And the cart should contain 1 item..........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="User Registration" name="Successful registration with valid data" time="8.379">
+<system-out><![CDATA[
+Given the user is on the registration page..................................passed
+When the user enters first name "John"......................................passed
+And the user enters last name "Doe".........................................passed
+And the user enters a unique email..........................................passed
+And the user enters password "Test@123".....................................passed
+And the user enters confirm password "Test@123".............................passed
+And the user clicks the register button.....................................passed
+Then the user should see registration success message "Your registration completed".passed
+]]></system-out>
+</testcase>
+<testcase classname="Checkout Process" name="Successful checkout with cash on delivery" time="27.099">
+<system-out><![CDATA[
+Given the user is logged in.................................................passed
+And the user has a product in the cart......................................passed
+When the user opens the cart page...........................................passed
+And check the check box of the term of the services.........................passed
+And the user proceeds to checkout...........................................passed
+And the user fills billing address with valid data..........................passed
+And the user continues to shipping method choose to stay on default and click continue.passed
+And the user continues to payment method choose to stay on default and click continue.passed
+And the user continues to payment info then continue........................passed
+And the user confirms the order.............................................passed
+Then the order should be placed successfully................................passed
+And the user should see order confirmation with order number................passed
+]]></system-out>
+</testcase>
+<testcase classname="Product Search" name="Search with exact product name returns results" time="7.413">
+<system-out><![CDATA[
+Given the user is on the home page..........................................passed
+When the user searches for "laptop".........................................passed
+Then the search results should be displayed.................................passed
+And the search results should contain products with "laptop"................passed
+]]></system-out>
+</testcase>
+</testsuite>
