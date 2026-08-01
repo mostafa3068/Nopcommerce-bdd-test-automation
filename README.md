@@ -331,7 +331,7 @@ target/cucumber-reports/cucumber.html
 - Utility classes manage configuration, waits, and WebDriver lifecycle.
 - Selenium WebDriver interacts with the browser.
 
-  ---
+---
 
  ## 📁 Project Structure
 
