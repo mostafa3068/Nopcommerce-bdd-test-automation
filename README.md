@@ -150,6 +150,7 @@ Before running the project, make sure the following tools are installed:
 - Maven
 - Git
 - Google Chrome
+- Docker Desktop
 - nopCommerce application running locally or on a test environment
 
 The default application URL used by the framework is:
@@ -163,10 +164,110 @@ You can change the application URL from:
 ```text
 src/test/resources/config.properties
 ```
+## 🐳 Local nopCommerce Deployment with Docker
+
+This project uses Docker to run the nopCommerce application locally as a test environment.
+
+The Docker setup includes:
+
+- `nopcommerce` web application container
+- `sqlserver` database container
+- Port mapping for accessing the application locally
+- Isolated local environment for executing UI automation tests
+
+After starting the Docker containers, the nopCommerce website should be available at:
+
+```text
+http://localhost:5000
+```
 
 
 
-### Clone the Repository
+### Verify Docker Desktop Is Running
+
+Open Docker Desktop and make sure the Docker engine is running.
+
+You should see the nopCommerce containers running, including:
+
+```text
+nopcommerce
+sqlserver
+```
+
+Example Docker containers:
+
+```text
+nopcommerce-docker
+├── nopcommerce
+└── sqlserver
+```
+
+---
+
+### Start the nopCommerce Environment
+
+If the project includes a `docker-compose.yml` file, start the application using:
+
+```bash
+docker compose up -d
+```
+
+Or, for older Docker versions:
+
+```bash
+docker-compose up -d
+```
+
+This command starts the nopCommerce application and SQL Server database in the background.
+
+
+
+### Check Running Containers
+
+To verify that the containers are running, use:
+
+```bash
+docker ps
+```
+
+You should see containers for:
+
+```text
+nopcommerce
+sqlserver
+```
+
+
+
+### Open the Application
+
+After the containers are running, open the website in your browser:
+
+```text
+http://localhost:5000
+```
+
+Make sure the website loads successfully before running the automation tests.
+
+
+
+### Stop the Docker Environment
+
+To stop the running containers, use:
+
+```bash
+docker compose down
+```
+
+Or:
+
+```bash
+docker-compose down
+```
+
+
+
+## 📦 Clone the Repository
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/Nopcommerce-bdd-test-automation.git
@@ -175,7 +276,7 @@ cd Nopcommerce-bdd-test-automation
 
 
 
-### Install Dependencies
+## ⚙️ Install Dependencies
 
 Maven will automatically download the required dependencies from `pom.xml` when you run the tests.
 
