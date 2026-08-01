@@ -235,7 +235,7 @@ target/cucumber-reports/cucumber.html
 
 ---
 
-## Architecture Explanation
+## 🏛️ Architecture Explanation
 
 - Feature files describe the expected application behavior in readable Gherkin syntax.
 - Step definitions connect the Gherkin steps to Java automation code.
@@ -313,7 +313,7 @@ nopcommerce-automation
 
 ---
 
-## 📂 Folder Responsibilities
+## 🗂️ Folder Responsibilities
 
 | Folder | Responsibility |
 | :--- | :--- |
