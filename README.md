@@ -18,6 +18,20 @@ https://github.com/user-attachments/assets/c344699f-efb0-48d9-9e0e-add81418f592
 
 ---
 
+## 🧪 Test Coverage
+
+The framework covers key user journeys across the following nopCommerce modules:
+
+- **User Registration:** Account creation flow and registration validation
+- **User Login:** Successful authentication and access control
+- **Product Search:** Searching for products and validating search results
+- **Product Details:** Navigating to individual product pages and verifying product specifications
+- **Shopping Cart:** Adding items to cart, updating quantities, and managing cart items
+- **Coupon Application:** Validating discount codes and price adjustments
+- **Checkout Flow:** End-to-end checkout execution including billing, shipping, and order completion
+- **Negative Login & Validation:** Testing invalid credentials, required field validations, and error messages
+
+---
 
 ## 🎯 Project Goal
 
@@ -322,17 +336,6 @@ target/cucumber-reports/cucumber.html
 
 ---
 
-## 🏛️ Architecture Explanation
-
-- Feature files describe the expected application behavior in readable Gherkin syntax.
-- Step definitions connect the Gherkin steps to Java automation code.
-- Page objects contain locators and actions for each application page.
-- BasePage provides reusable Selenium actions such as click, type, get text, and navigation.
-- Utility classes manage configuration, waits, and WebDriver lifecycle.
-- Selenium WebDriver interacts with the browser.
-
----
-
  ## 📁 Project Structure
 
 ```text
@@ -453,18 +456,7 @@ The framework wraps `WebDriver` inside `ThreadLocal<WebDriver>` to support threa
 
 ---
 
-## 🧪 Test Coverage
 
-The framework covers key user journeys across the following nopCommerce modules:
-
-- **User Registration:** Account creation flow and registration validation
-- **User Login:** Successful authentication and access control
-- **Product Search:** Searching for products and validating search results
-- **Product Details:** Navigating to individual product pages and verifying product specifications
-- **Shopping Cart:** Adding items to cart, updating quantities, and managing cart items
-- **Coupon Application:** Validating discount codes and price adjustments
-- **Checkout Flow:** End-to-end checkout execution including billing, shipping, and order completion
-- **Negative Login & Validation:** Testing invalid credentials, required field validations, and error messages
 
 
 
